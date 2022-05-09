@@ -9,7 +9,7 @@ import (
 )
 
 func TestPriorityQueue(t *testing.T) {
-	pq := &PriorityQueue{}
+	pq := &PQ{}
 	j := 0
 	for i := 10; i >= 0; i-- {
 		*pq = append(*pq, Tuple2{Key: i, First: j})
@@ -22,7 +22,7 @@ func TestPriorityQueue(t *testing.T) {
 }
 
 func TestPriorityQueuePushPop(t *testing.T) {
-	pq := &PriorityQueue{}
+	pq := &PQ{}
 	j := 1
 	for i := 10; i > 0; i-- {
 		heap.Push(pq, Tuple2{Key: i, First: j})
@@ -30,4 +30,3 @@ func TestPriorityQueuePushPop(t *testing.T) {
 	}
 	assert.Equal(t, Tuple2{Key: 1, First: 10}, heap.Pop(pq))
 }
-

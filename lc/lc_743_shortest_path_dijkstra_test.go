@@ -5,7 +5,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/priorityqueue"
+	"github.com/ArseniKavalchuk/dsa-go/pkg/mheap"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -36,23 +36,23 @@ func TestLeetcode743_2(t *testing.T) {
 }
 
 func networkDelayTime(times [][]int, n int, k int) int {
-	adjList := make([][]priorityqueue.Tuple2, n+1)
+	adjList := make([][]mheap.Tuple2, n+1)
 	for _, edge := range times {
-		adjList[edge[0]] = append(adjList[edge[0]], priorityqueue.Tuple2{Key: edge[2], First: edge[1]})
+		adjList[edge[0]] = append(adjList[edge[0]], mheap.Tuple2{First: edge[2], Second: edge[1]})
 	}
 	dist := make([]int, n+1)
 	for i := 1; i <= n; i++ {
 		dist[i] = math.MaxInt32
 	}
 	dist[k] = 0
-	pq := &priorityqueue.PQ{}
+	pq := &mheap.PQ{}
 	//visited := make([]int, n + 1)
-	heap.Push(pq, priorityqueue.Tuple2{Key: 0, First: k})
+	heap.Push(pq, mheap.Tuple2{First: 0, Second: k})
 	for len(*pq) > 0 {
-		top := heap.Pop(pq).(priorityqueue.Tuple2)
-		for _, e := range adjList[top.First] {
-			if e.Key+dist[top.First] < dist[e.First] {
-				dist[e.First] = e.Key + dist[top.First]
+		top := heap.Pop(pq).(mheap.Tuple2)
+		for _, e := range adjList[top.Second] {
+			if e.First+dist[top.Second] < dist[e.Second] {
+				dist[e.Second] = e.First + dist[top.Second]
 				heap.Push(pq, e)
 			}
 		}

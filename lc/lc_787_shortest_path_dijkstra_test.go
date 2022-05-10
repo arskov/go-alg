@@ -5,7 +5,7 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/priorityqueue"
+	"github.com/ArseniKavalchuk/dsa-go/pkg/mheap"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -51,27 +51,27 @@ func findCheapestPrice_1(n int, flights [][]int, src int, dst int, k int) int {
 	}
 	dist[src] = 0
 	stops[src] = 0
-	pq := &priorityqueue.PQ{}
-	heap.Push(pq, priorityqueue.Tuple3{Key:0, First: src, Second: 0})
+	pq := &mheap.PQ{}
+	heap.Push(pq, mheap.Tuple3{First: 0, Second: src, Third: 0})
 	for pq.Len() > 0 {
-		head := heap.Pop(pq).(priorityqueue.Tuple3)
-		if head.First == dst {
-			return head.Key
+		head := heap.Pop(pq).(mheap.Tuple3)
+		if head.Second == dst {
+			return head.First
 		}
-		if head.Second == k+1 {
+		if head.Third == k+1 {
 			continue
 		}
-		for _, adj := range adjList[head.First] {
-			dU := head.Key
+		for _, adj := range adjList[head.Second] {
+			dU := head.First
 			dV := dist[adj[0]]
 			wUV := adj[1]
 
 			if dU+wUV < dV {
-				heap.Push(pq, priorityqueue.Tuple3{Key: dU + wUV, First: adj[0], Second: head.Second + 1})
+				heap.Push(pq, mheap.Tuple3{First: dU + wUV, Second: adj[0], Third: head.Third + 1})
 				dist[adj[0]] = dU + wUV
-				stops[adj[0]] = head.Second
-			} else if head.Second < stops[adj[0]] {
-				heap.Push(pq, priorityqueue.Tuple3{Key: dU + wUV, First: adj[0], Second: head.Second + 1})
+				stops[adj[0]] = head.Third
+			} else if head.Third < stops[adj[0]] {
+				heap.Push(pq, mheap.Tuple3{First: dU + wUV, Second: adj[0], Third: head.Third + 1})
 			}
 		}
 	}

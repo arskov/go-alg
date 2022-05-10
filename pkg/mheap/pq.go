@@ -1,4 +1,4 @@
-package priorityqueue
+package mheap
 
 type PQ []Orderable
 

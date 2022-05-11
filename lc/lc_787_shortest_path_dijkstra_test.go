@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestLeetcode787_0(t *testing.T) {
+func TestLeetcode787_1_0(t *testing.T) {
 	in := [][]int{
 		{0, 1, 100},
 		{1, 2, 100},
@@ -17,11 +17,31 @@ func TestLeetcode787_0(t *testing.T) {
 		{1, 3, 600},
 		{2, 3, 200},
 	}
-	res := findCheapestPrice_1(4, in, 0, 3, 1)
+	res := findCheapestPrice_dijkstra(4, in, 0, 3, 1)
 	assert.Equal(t, 700, res)
 }
 
-func TestLeetcode787_1(t *testing.T) {
+func TestLeetcode787_1_1(t *testing.T) {
+	in := [][]int{
+		{0, 1, 100},
+		{1, 2, 100},
+		{0, 2, 500},
+	}
+	res := findCheapestPrice_dijkstra(3, in, 0, 2, 1)
+	assert.Equal(t, 200, res)
+}
+
+func TestLeetcode787_1_2(t *testing.T) {
+	in := [][]int{
+		{0, 1, 100},
+		{1, 2, 100},
+		{0, 2, 500},
+	}
+	res := findCheapestPrice_dijkstra(3, in, 0, 2, 0)
+	assert.Equal(t, 500, res)
+}
+
+func TestLeetcode787_1_3(t *testing.T) {
 	in := [][]int{
 		{0, 1, 1},
 		{1, 2, 1},
@@ -34,11 +54,26 @@ func TestLeetcode787_1(t *testing.T) {
 		{6, 7, 100},
 		{7, 8, 1},
 	}
-	res := findCheapestPrice_1(9, in, 0, 8, 3)
+	res := findCheapestPrice_dijkstra(9, in, 0, 8, 3)
 	assert.Equal(t, 10, res)
 }
 
-func findCheapestPrice_1(n int, flights [][]int, src int, dst int, k int) int {
+// Dijkstra version of the algorithm doesn't work for negative edges
+//
+// func TestLeetcode787_1_4(t *testing.T) {
+// 	in := [][]int{
+// 		{1, 2, 100},
+// 		{3, 1, -150},
+// 		{0, 1, 100},
+// 		{2, 3, 100},
+// 		{0, 3, 200},
+// 		{0, 2, 500},
+// 	}
+// 	res := findCheapestPrice_dijkstra(4, in, 0, 1, 3)
+// 	assert.Equal(t, 50, res)
+// }
+
+func findCheapestPrice_dijkstra(n int, flights [][]int, src int, dst int, k int) int {
 	adjList := make([][][]int, n)
 	for _, f := range flights {
 		adjList[f[0]] = append(adjList[f[0]], []int{f[1], f[2]})
@@ -65,7 +100,6 @@ func findCheapestPrice_1(n int, flights [][]int, src int, dst int, k int) int {
 			dU := head.First
 			dV := dist[adj[0]]
 			wUV := adj[1]
-
 			if dU+wUV < dV {
 				heap.Push(pq, mheap.Tuple3{First: dU + wUV, Second: adj[0], Third: head.Third + 1})
 				dist[adj[0]] = dU + wUV

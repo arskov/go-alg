@@ -61,8 +61,7 @@ func findOrder(numCourses int, prerequisites [][]int) []int {
 			}
 			if visited[next] == 0 {
 				visited[next] = 1
-				res := detectCycle(next)
-				if res {
+				if detectCycle(next) {
 					return true
 				}
 				visited[next] = 2

@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/ArseniKavalchuk/dsa-go/pkg/mheap"
+	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -66,22 +67,6 @@ func TestLeetcode1631_1_4(t *testing.T) {
 	assert.Equal(t, 5, res)
 }
 
-func absDiff(a, b int) int {
-	if a > b {
-		return a - b
-	} else {
-		return b - a
-	}
-}
-
-func maxInt(a, b int) int {
-	if a > b {
-		return a
-	} else {
-		return b
-	}
-}
-
 func minimumEffortPath(heights [][]int) int {
 	rows := len(heights)
 	if rows == 0 {
@@ -93,10 +78,10 @@ func minimumEffortPath(heights [][]int) int {
 	}
 
 	var dir = [][]int{
-		{ 0,  1},
-		{ 1,  0},
-		{ 0, -1},
-		{-1,  0},
+		{0, 1},
+		{1, 0},
+		{0, -1},
+		{-1, 0},
 	}
 	dist := make([][]int, rows)
 	for i := 0; i < rows; i++ {
@@ -117,9 +102,9 @@ func minimumEffortPath(heights [][]int) int {
 		for _, d := range dir {
 			nx := x + d[0]
 			ny := y + d[1]
-			if nx>=0 && nx<rows && ny>=0 && ny<cols {
-				diff := absDiff(heights[x][y], heights[nx][ny])
-				maxDiff := maxInt(diff, dist[x][y])
+			if nx >= 0 && nx < rows && ny >= 0 && ny < cols {
+				diff := mymath.AbsDiff(heights[x][y], heights[nx][ny])
+				maxDiff := mymath.Max(diff, dist[x][y])
 				if maxDiff < dist[nx][ny] {
 					dist[nx][ny] = maxDiff
 					heap.Push(pq, mheap.Tuple3{First: diff, Second: nx, Third: ny})

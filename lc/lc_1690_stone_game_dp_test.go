@@ -32,7 +32,7 @@ func stoneGameVII(stones []int) int {
 		if s > e {
 			return 0
 		}
-		k := graph.Pair{s, e}
+		k := graph.Pair{First: s, Second: e}
 		if v, ok := memo[k]; ok {
 			return v
 		}

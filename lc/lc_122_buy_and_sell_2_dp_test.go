@@ -25,8 +25,6 @@ func TestLeetcode122_1_3(t *testing.T) {
 	assert.Equal(t, 0, res)
 }
 
-//[1,2,3,1,2,3]
-
 func maxProfit_2_dp(prices []int) int {
 	n := len(prices)
 	if n == 0 {

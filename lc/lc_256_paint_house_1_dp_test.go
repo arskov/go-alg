@@ -13,7 +13,7 @@ func TestLeetcode256_1_0(t *testing.T) {
 		{16, 16, 5},
 		{14, 3, 19},
 	}
-	res := minCost_256(costs)
+	res := minCostI_256(costs)
 	assert.Equal(t, 10, res)
 }
 
@@ -21,11 +21,11 @@ func TestLeetcode256_1_1(t *testing.T) {
 	costs := [][]int{
 		{7, 6, 2},
 	}
-	res := minCost_256(costs)
+	res := minCostI_256(costs)
 	assert.Equal(t, 2, res)
 }
 
-func minCost_256(costs [][]int) int {
+func minCostI_256(costs [][]int) int {
 	n := len(costs)
 	if n == 0 {
 		return 0

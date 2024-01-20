@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -37,7 +36,7 @@ func lengthOfLIS(nums []int) int {
 			memo[i] = 1
 			for j := i - 1; j >= 0; j-- {
 				if nums[j] < nums[i] {
-					memo[i] = mymath.Max(memo[i], 1+dp(j))
+					memo[i] = max(memo[i], 1+dp(j))
 				}
 			}
 		}
@@ -45,7 +44,7 @@ func lengthOfLIS(nums []int) int {
 	}
 	ans := 0
 	for i := n - 1; i >= 0; i-- {
-		ans = mymath.Max(ans, dp(i))
+		ans = max(ans, dp(i))
 	}
 	return ans
 }

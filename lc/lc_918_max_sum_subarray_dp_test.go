@@ -4,7 +4,6 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -34,8 +33,8 @@ func maxSubarraySumCircular(nums []int) int {
 	best := math.MinInt32
 	current := 0
 	for i := 0; i < n; i++ {
-		current = nums[i] + mymath.Max(current, 0)
-		best = mymath.Max(best, current)
+		current = nums[i] + max(current, 0)
+		best = max(best, current)
 	}
 
 	rightSum := make([]int, n)
@@ -47,13 +46,13 @@ func maxSubarraySumCircular(nums []int) int {
 	maxRight := make([]int, n)
 	maxRight[n-1] = rightSum[n-1]
 	for i := n - 2; i >= 0; i-- {
-		maxRight[i] = mymath.Max(maxRight[i+1], rightSum[i])
+		maxRight[i] = max(maxRight[i+1], rightSum[i])
 	}
 
 	leftSum := 0
 	for i := 0; i < n-2; i++ {
 		leftSum += nums[i]
-		best = mymath.Max(best, leftSum+maxRight[i+2])
+		best = max(best, leftSum+maxRight[i+2])
 	}
 	return best
 }

@@ -4,7 +4,6 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -43,7 +42,7 @@ func mincostTickets(days []int, costs []int) int {
 			for k := 0; k < 3; k++ {
 				for ; j < n && days[j] < days[i]+durations[k]; j++ {
 				}
-				res = mymath.Min(res, dp(j)+costs[k])
+				res = min(res, dp(j)+costs[k])
 			}
 			memo[i] = res
 		}

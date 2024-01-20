@@ -4,7 +4,6 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -84,7 +83,7 @@ func minCostIII_1473(houses []int, cost [][]int, m int, n int, target int) int {
 			best := math.MaxInt32
 			if houses[step] == 0 {
 				for i := 1; i <= n; i++ {
-					best = mymath.Min(best, cost[step][i-1]+dp(step+1, i, nextNeighbour(nCount, prevColor, i)))
+					best = min(best, cost[step][i-1]+dp(step+1, i, nextNeighbour(nCount, prevColor, i)))
 				}
 			} else {
 				best = dp(step+1, houses[step], nextNeighbour(nCount, prevColor, houses[step]))

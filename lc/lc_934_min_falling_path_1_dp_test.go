@@ -4,7 +4,6 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -40,17 +39,17 @@ func minFallingPathSum(matrix [][]int) int {
 	for i := 1; i < n; i++ {
 		for j := 0; j < n; j++ {
 			if j == 0 {
-				dp[i][j] = matrix[i][j] + mymath.Min(dp[i-1][j], dp[i-1][j+1])
+				dp[i][j] = matrix[i][j] + min(dp[i-1][j], dp[i-1][j+1])
 			} else if j == n-1 {
-				dp[i][j] = matrix[i][j] + mymath.Min(dp[i-1][j], dp[i-1][j-1])
+				dp[i][j] = matrix[i][j] + min(dp[i-1][j], dp[i-1][j-1])
 			} else {
-				dp[i][j] = matrix[i][j] + mymath.Min(dp[i-1][j-1], mymath.Min(dp[i-1][j], dp[i-1][j+1]))
+				dp[i][j] = matrix[i][j] + min(dp[i-1][j-1], min(dp[i-1][j], dp[i-1][j+1]))
 			}
 		}
 	}
 	best := math.MaxInt32
 	for i := 0; i < n; i++ {
-		best = mymath.Min(best, dp[n-1][i])
+		best = min(best, dp[n-1][i])
 	}
 	return best
 }

@@ -4,7 +4,6 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -50,7 +49,7 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 			if text1[i] == text2[j] {
 				memo[i][j] = 1 + dp(i+1, j+1)
 			} else {
-				memo[i][j] = mymath.Max(dp(i, j+1), dp(i+1, j))
+				memo[i][j] = max(dp(i, j+1), dp(i+1, j))
 			}
 		}
 		return memo[i][j]

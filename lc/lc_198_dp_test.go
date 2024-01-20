@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -29,9 +28,9 @@ func rob(nums []int) int {
 		dp[i] = -1
 	}
 	dp[0] = nums[0]
-	dp[1] = mymath.Max(nums[0], nums[1])
+	dp[1] = max(nums[0], nums[1])
 	for i := 2; i < n; i++ {
-		dp[i] = mymath.Max(dp[i-1], nums[i]+dp[i-2])
+		dp[i] = max(dp[i-1], nums[i]+dp[i-2])
 	}
 	return dp[n-1]
 }

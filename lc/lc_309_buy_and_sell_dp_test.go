@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -45,7 +44,7 @@ func maxProfit_309_dp(prices []int) int {
 				a = -prices[i] + dp(txActive^1, i+1)
 				b = dp(txActive, i+1)
 			}
-			memo[txActive][i] = mymath.Max(a, b)
+			memo[txActive][i] = max(a, b)
 		}
 		return memo[txActive][i]
 	}

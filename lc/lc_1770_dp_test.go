@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -37,7 +36,7 @@ func maximumScore(nums []int, multipliers []int) int {
 			numEnd := nSize - 1 - (multIdx - numStart)
 			left := dp(multIdx+1, numStart)
 			right := dp(multIdx+1, numStart+1)
-			v := mymath.Max(
+			v := max(
 				multipliers[multIdx]*nums[numEnd]+left,
 				multipliers[multIdx]*nums[numStart]+right,
 			)

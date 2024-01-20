@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -57,7 +56,7 @@ func maximalSquare(matrix [][]byte) int {
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			if matrix[i-1][j-1] == '1' {
-				dp[i][j] = mymath.Min(mymath.Min(dp[i-1][j], dp[i][j-1]), dp[i-1][j-1]) + 1
+				dp[i][j] = min(min(dp[i-1][j], dp[i][j-1]), dp[i-1][j-1]) + 1
 				if dp[i][j] > maxSize {
 					maxSize = dp[i][j]
 				}

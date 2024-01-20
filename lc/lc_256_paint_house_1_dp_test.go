@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -46,9 +45,9 @@ func minCostI_256(costs [][]int) int {
 		}
 		if memo[nextColor][step] == -1 {
 			memo[nextColor][step] = costs[step][nextColor] +
-				mymath.Min(dp(step+1, (nextColor+1)%3), dp(step+1, (nextColor+2)%3))
+				min(dp(step+1, (nextColor+1)%3), dp(step+1, (nextColor+2)%3))
 		}
 		return memo[nextColor][step]
 	}
-	return mymath.Min(dp(0, 0), mymath.Min(dp(0, 1), dp(0, 2)))
+	return min(dp(0, 0), min(dp(0, 1), dp(0, 2)))
 }

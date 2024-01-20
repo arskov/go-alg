@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -26,7 +25,7 @@ func minCostClimbingStairs(cost []int) int {
 	}
 	dp := make([]int, n+1)
 	for i := 2; i <= n; i++ {
-		dp[i] = mymath.Min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
+		dp[i] = min(dp[i-1]+cost[i-1], dp[i-2]+cost[i-2])
 	}
 	return dp[n]
 }

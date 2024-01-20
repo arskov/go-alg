@@ -104,7 +104,7 @@ func minimumEffortPath(heights [][]int) int {
 			ny := y + d[1]
 			if nx >= 0 && nx < rows && ny >= 0 && ny < cols {
 				diff := mymath.AbsDiff(heights[x][y], heights[nx][ny])
-				maxDiff := mymath.Max(diff, dist[x][y])
+				maxDiff := max(diff, dist[x][y])
 				if maxDiff < dist[nx][ny] {
 					dist[nx][ny] = maxDiff
 					heap.Push(pq, mheap.Tuple3{First: diff, Second: nx, Third: ny})

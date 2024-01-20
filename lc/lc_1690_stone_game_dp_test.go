@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/ArseniKavalchuk/dsa-go/pkg/graph"
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -41,11 +40,11 @@ func stoneGameVII(stones []int) int {
 		if p == 0 {
 			a := game(p^1, s+1, e) + scoreA
 			b := game(p^1, s, e-1) + scoreB
-			memo[k] = mymath.Max(a, b)
+			memo[k] = max(a, b)
 		} else {
 			a := game(p^1, s+1, e) - scoreA
 			b := game(p^1, s, e-1) - scoreB
-			memo[k] = mymath.Min(a, b)
+			memo[k] = min(a, b)
 		}
 		return memo[k]
 	}

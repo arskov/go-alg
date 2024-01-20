@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -40,7 +39,7 @@ func findLengthTopDown(nums1 []int, nums2 []int) int {
 	if n == 0 || m == 0 {
 		return 0
 	}
-	l := mymath.Min(n, m)
+	l := min(n, m)
 	memo := make([][][]int, n+1)
 	for i := 0; i <= n; i++ {
 		memo[i] = make([][]int, m+1)
@@ -63,7 +62,7 @@ func findLengthTopDown(nums1 []int, nums2 []int) int {
 			}
 			b := dp(i, j-1, 0)
 			c := dp(i-1, j, 0)
-			memo[i][j][count] = mymath.Max(a, mymath.Max(b, c))
+			memo[i][j][count] = max(a, max(b, c))
 		}
 		return memo[i][j][count]
 	}

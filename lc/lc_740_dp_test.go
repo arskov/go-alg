@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -28,7 +27,7 @@ func deleteAndEarn(nums []int) int {
 	maxVal := 0
 	for _, v := range nums {
 		count[v] += v
-		maxVal = mymath.Max(maxVal, v)
+		maxVal = max(maxVal, v)
 	}
 	var dfs func(int) int
 	dfs = func(num int) int {
@@ -41,7 +40,7 @@ func deleteAndEarn(nums []int) int {
 		if v, ok := memo[num]; ok {
 			return v
 		}
-		v := mymath.Max(dfs(num-1), count[num]+dfs(num-2))
+		v := max(dfs(num-1), count[num]+dfs(num-2))
 		memo[num] = v
 		return v
 	}

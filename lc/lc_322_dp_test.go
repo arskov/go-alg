@@ -4,7 +4,6 @@ import (
 	"math"
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -56,7 +55,7 @@ func coinChange(coins []int, amount int) int {
 			} else if notTake == -1 {
 				result = take + 1
 			} else {
-				result = mymath.Min(take+1, notTake)
+				result = min(take+1, notTake)
 			}
 			memo[i][am] = result
 		}

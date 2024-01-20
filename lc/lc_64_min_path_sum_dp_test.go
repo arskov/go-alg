@@ -3,7 +3,6 @@ package lc
 import (
 	"testing"
 
-	"github.com/ArseniKavalchuk/dsa-go/pkg/mymath"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -45,7 +44,7 @@ func minPathSum(grid [][]int) int {
 	}
 	for i := 1; i < m; i++ {
 		for j := 1; j < n; j++ {
-			dp[i][j] = grid[i][j] + mymath.Min(dp[i-1][j], dp[i][j-1])
+			dp[i][j] = grid[i][j] + min(dp[i-1][j], dp[i][j-1])
 		}
 	}
 	return dp[m-1][n-1]

@@ -31,7 +31,7 @@ The repository provides sample solutions for a wide array of coding challenges a
 1. [Paint Fence (Dynamic Programming)](lc/lc_276_paint_fence_dp_test.go)
 1. [Longest Increasing Subsequence (Dynamic Programming)](lc/lc_300_dp_top_down_test.go)
 1. [Minimum Height Trees (Topological Sort)](lc/lc_310_top_sort_test.go)
-1. []()
+1. [Coin Change (Dynamic Programming)](lc/lc_322_dp_test.go)
 1. []()
 1. []()
 1. []()

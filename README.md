@@ -18,3 +18,5 @@ The repository provides sample solutions for a wide array of coding challenges a
 1. [Buy and Sell Stocks 2 (Recursion)](lc/lc_122_buy_and_sell_2_dp_test.go)
 1. [Buy and Sell Stocks 2](lc/lc_122_buy_and_sell_2_test.go)
 1. [Buy and Sell Stocks 3](lc/lc_123_buy_and_sell_3_dp_test.go)
+1. [Buy and Sell Stocks 4](lc/lc_188_buy_and_sell_4_dp_test.go)
+1. [Word Break](lc/lc_139_dp_test.go)

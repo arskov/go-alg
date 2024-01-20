@@ -10,3 +10,4 @@ The repository provides sample solutions for a wide array of coding challenges a
 
 ## Solutions for coding challanges in Go
 1. [Unique Paths of Robot in a Maze](lc/lc_63_unique_paths_2_dp_test.go)
+1. [Minimize the Sum of All Numbers Along the Path](lc/lc_64_min_path_sum_dp_test.go)

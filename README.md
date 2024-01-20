@@ -23,7 +23,7 @@ The repository provides sample solutions for a wide array of coding challenges a
 1. [House Robber (Dynamic Programming)](lc/lc_198_dp_test.go)
 1. [Ordering of Courses (Topological Sort, DFS)](lc/lc_210_top_sort_dfs_test.go)
 1. [Ordering of Courses (Topological Sort)](lc/lc_210_top_sort_test.go)
-1. []()
+1. [Maximum Square](lc/lc_221_dp_test.go)
 1. []()
 1. []()
 1. []()

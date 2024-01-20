@@ -12,3 +12,4 @@ The repository provides sample solutions for a wide array of coding challenges a
 1. [Unique Paths of Robot in a Maze](lc/lc_63_unique_paths_2_dp_test.go)
 1. [Minimize the Sum of All Numbers Along the Path](lc/lc_64_min_path_sum_dp_test.go)
 1. [Number of Possible Unique Paths](lc/lc_62_unique_paths_dp_test.go)
+1. [Number of Ways to Decode a String](lc/lc_91_decode_ways_1_dp_test.go)

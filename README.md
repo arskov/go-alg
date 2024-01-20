@@ -14,3 +14,7 @@ The repository provides sample solutions for a wide array of coding challenges a
 1. [Number of Possible Unique Paths](lc/lc_62_unique_paths_dp_test.go)
 1. [Number of Ways to Decode a String](lc/lc_91_decode_ways_1_dp_test.go)
 1. [Interleaving Strings](lc/lc_97_interleaving_dp_test.go)
+1. [Buy and Sell Stocks 1](lc/lc_121_buy_and_sell_1_test.go)
+1. [Buy and Sell Stocks 2 (Recursion)](lc/lc_122_buy_and_sell_2_dp_test.go)
+1. [Buy and Sell Stocks 2](lc/lc_122_buy_and_sell_2_test.go)
+1. [Buy and Sell Stocks 3](lc/lc_123_buy_and_sell_3_dp_test.go)

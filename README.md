@@ -7,3 +7,6 @@ The repository provides sample solutions for a wide array of coding challenges a
 1. [Min (prior Go 1.21)](pkg/mymath/min.go)
 1. [Max (prior Go 1.21)](pkg/mymath/max.go)
 1. [Abs](pkg/mymath/abs.go)
+
+## Solutions for coding challanges in Go
+1. [Unique Paths of Robot in a Maze](lc/lc_63_unique_paths_2_dp_test.go)
